@@ -1,46 +1,21 @@
-# Listing 5.4 - Subtraction Quiz Loop
-import random
-import time
+# Name - Sirpreet Padda
+# Class - MCSCI - 270
 
-# Count the number of correct answers
-correctCount = 0
+# Listing 5.6 - Multiplication Table
+print("      Multiplication Table")
 
-# Count thr number of questions
-count = 0
+# Display the number title
+print(" |", end =  ' ')
+for j in range(1, 10):
+    print(" ", j, end = ' ')
 
-# Constant
-NUMBER_OF_QUESTIONS = 5
+# Jump to the new line
+print()
+print("_________________________________________________________")
 
-# Get start time
-startTime = time.time()
-
-while count < NUMBER_OF_QUESTIONS:
-    number1 = random.randint(0, 9)
-    number2 = random.randint(0, 9)
-
-    # if number1 < number 2, swap number1 with number2
-    if number1 < number2:
-        number1, number2 = number2, number1
-
-    # Prompt the student to answer  " what is number1 - number2 ?"
-    answer = eval(input(" What is " + str(number1) + " - " + str(number2) + " ? "))
-
-    # Grade the answer and display the result
-    if number1 - number2 == answer:
-        print("You are correct!")
-        correctCount += 1
-    else:
-        print("Your answer is wrong. \n ", number1, "-", number2, "is", number1 - number2)
-
-    # Increase the count
-    count += 1
-
-# Get end time
-endTime = time.time()
-
-# Get test time
-testTime = int(endTime - startTime)
-
-# Display results
-print("Correct count is", correctCount, "out of", NUMBER_OF_QUESTIONS, "\n Test time is", testTime, "Seconds")
-
+# Display table body
+for i in range(1, 10):
+    print(i, "|", end = ' ')
+    for j in range(1, 10):
+        print(format(i * j, "4d"), end = ' ') # Display the product and align properly
+    print() # Jump to new line

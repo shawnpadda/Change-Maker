@@ -1,21 +1,13 @@
-# Name - Sirpreet Padda
-# Class - MCSCI - 270
+# Listing 5.7 - Test Sum
 
-# Listing 5.6 - Multiplication Table
-print("      Multiplication Table")
+# Initialize sum
+sum = 0
 
-# Display the number title
-print(" |", end =  ' ')
-for j in range(1, 10):
-    print(" ", j, end = ' ')
+# Add 0.01, 0.02,......, 0.99, 1 to sum
+i = 0.01
+while i <= 1.0:
+    sum += i
+    i += 0.01
 
-# Jump to the new line
-print()
-print("_________________________________________________________")
-
-# Display table body
-for i in range(1, 10):
-    print(i, "|", end = ' ')
-    for j in range(1, 10):
-        print(format(i * j, "4d"), end = ' ') # Display the product and align properly
-    print() # Jump to new line
+# Display result
+print("The sum is", sum)

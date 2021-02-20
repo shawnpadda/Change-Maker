@@ -1,49 +1,38 @@
-# Name - Sirpreet Padda
-# Class - MCSCI - 270
-# Due date - 04/20/2020
-# Title - TestCircle
+# Listing 5.13 - Prime number
+
+NUMBER_OF_PRIMES = 50
+NUMBER_OF_PRIMES_PER_LINE = 10
+# Count the number of prime numbers
+count = 0
+
+#  A number to be tested for primeness
+number = 2
+
+print(" The first 50 prime numbers are")
+
+# Repeatedly find prime numbers
+while count < NUMBER_OF_PRIMES:
+    isPrime = True  # Is the current number prime?
+
+    # Test if number is prime
+    divisor = 2
+    while divisor <= number / 2:
+        if number % divisor == 0:
+            # if true, the number is not prime
+            isPrime = False  # Set isPrime to False
+            break  # Exit the for loop
+        divisor += 1
+
+    # Display the prime number and increase the count
+    if isPrime:
+        count += 1  # Increase the count
+
+        print(format(number, "5d"), end=' ')
+        if count % NUMBER_OF_PRIMES_PER_LINE == 0:
+            print()  # jump to the new line
+
+    # Check if the next number is prime
+    number += 1
 
 
-import math
 
-
-class Circle:
-
-    # Construct a circle object
-    def __init__(self, radius=1):
-        self.radius = radius
-
-    def getPerimeter(self):
-        return 2 * self.radius * math.pi
-
-    def getArea(self):
-        return self.radius * self.radius * math.pi
-
-    def setRadius(self, radius):
-        self.radius = radius
-
-
-def main():
-    # Create a circle with radius 1
-    circle1 = Circle(float(1))
-    print("The area of the circle of radius",
-          circle1.radius, "is", circle1.getArea())
-
-    # Create a circle with radius 25
-    circle2 = Circle(float(25))
-    print("The area of the circle of radius",
-          circle2.radius, "is", circle2.getArea())
-
-    # Create a circle with radius 125
-    circle3 = Circle(float(125))
-    print("The area of the circle of radius",
-          circle3.radius, "is", circle3.getArea())
-
-    # Modify circle radius
-    circle2.radius = float(100)
-    print("The area of the circle of radius",
-          circle2.radius, "is", circle2.getArea())
-
-
-# Call the main function
-main()

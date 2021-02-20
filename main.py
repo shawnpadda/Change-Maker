@@ -1,38 +1,46 @@
-# Listing 5.13 - Prime number
+# Listing 5.4 - Subtraction Quiz Loop
+import random
+import time
 
-NUMBER_OF_PRIMES = 50
-NUMBER_OF_PRIMES_PER_LINE = 10
-# Count the number of prime numbers
+# Count the number of correct answers
+correctCount = 0
+
+# Count thr number of questions
 count = 0
 
-#  A number to be tested for primeness
-number = 2
+# Constant
+NUMBER_OF_QUESTIONS = 5
 
-print(" The first 50 prime numbers are")
+# Get start time
+startTime = time.time()
 
-# Repeatedly find prime numbers
-while count < NUMBER_OF_PRIMES:
-    isPrime = True  # Is the current number prime?
+while count < NUMBER_OF_QUESTIONS:
+    number1 = random.randint(0, 9)
+    number2 = random.randint(0, 9)
 
-    # Test if number is prime
-    divisor = 2
-    while divisor <= number / 2:
-        if number % divisor == 0:
-            # if true, the number is not prime
-            isPrime = False  # Set isPrime to False
-            break  # Exit the for loop
-        divisor += 1
+    # if number1 < number 2, swap number1 with number2
+    if number1 < number2:
+        number1, number2 = number2, number1
 
-    # Display the prime number and increase the count
-    if isPrime:
-        count += 1  # Increase the count
+    # Prompt the student to answer  " what is number1 - number2 ?"
+    answer = eval(input(" What is " + str(number1) + " - " + str(number2) + " ? "))
 
-        print(format(number, "5d"), end=' ')
-        if count % NUMBER_OF_PRIMES_PER_LINE == 0:
-            print()  # jump to the new line
+    # Grade the answer and display the result
+    if number1 - number2 == answer:
+        print("You are correct!")
+        correctCount += 1
+    else:
+        print("Your answer is wrong. \n ", number1, "-", number2, "is", number1 - number2)
 
-    # Check if the next number is prime
-    number += 1
+    # Increase the count
+    count += 1
 
+# Get end time
+endTime = time.time()
 
+# Get test time
+testTime = int(endTime - startTime)
+
+# Display results
+print("Correct count is", correctCount, "out of", NUMBER_OF_QUESTIONS, "\n Test time is", testTime, "Seconds")
 
